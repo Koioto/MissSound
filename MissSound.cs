@@ -11,6 +11,7 @@ namespace Koioto.SamplePlugin.MissSound
         public override string Name => "MissSound";
         public override string[] Creator => new string[] { "AioiLight" };
         public override string Description => "Play sound when miss.";
+        public override string Version => "1.1";
 
         public override void OnEnable()
         {
