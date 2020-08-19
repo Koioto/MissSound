@@ -11,7 +11,7 @@ namespace Koioto.SamplePlugin.MissSound
         public override string Name => "MissSound";
         public override string[] Creator => new string[] { "AioiLight" };
         public override string Description => "Play sound when miss.";
-        public override string Version => "1.1";
+        public override string Version => "1.2";
 
         public override void OnEnable()
         {
@@ -20,7 +20,8 @@ namespace Koioto.SamplePlugin.MissSound
             var dir = Path.Combine(Bridge.PluginDir, Name);
             // Amaoto.Soundのインスタンスを作成して音を鳴らす準備をする
             // Create an instance of Amaoto.Sound and get ready to play the sound.
-            Sound = new Sound(Path.Combine(dir, @"miss-sound.wav"));
+            var sound = new Sound(Path.Combine(dir, @"miss-sound.wav"));
+            Sound = Bridge.SoundManager.AddManagedSound(new ManagedSound(sound, SoundType.SE)) as Sound;
             base.OnEnable();
         }
 
@@ -29,6 +30,7 @@ namespace Koioto.SamplePlugin.MissSound
             // 音の破棄をする。忘れるとメモリリークする可能性があるので必ずすること
             // Dipose the sound.
             // Be sure to do this because there is a possibility of a memory leak if you forget to do it.
+            Bridge.SoundManager.RemoveManagedSound(Sound);
             Sound?.Dispose();
             base.OnDisable();
         }
