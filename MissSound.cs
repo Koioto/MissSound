@@ -1,8 +1,8 @@
-﻿using System.IO;
-using Amaoto;
+﻿using Amaoto;
 using Koioto.Plugin;
 using Koioto.Support;
 using Koioto.Support.FileReader;
+using System.IO;
 
 namespace Koioto.SamplePlugin.MissSound
 {
