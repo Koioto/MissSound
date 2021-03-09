@@ -17,7 +17,7 @@ namespace Koioto.SamplePlugin.MissSound
         {
             // プラグインのフォルダとプラグイン名を結合してプラグインが使用するフォルダを決定する
             // Combine the plugin's folder with the plugin name to determine which folder the plugin will use
-            var dir = Path.Combine(Bridge.PluginDir, Name);
+            var dir = Path.Combine(Bridge.PluginsDir, Name);
             // Amaoto.Soundのインスタンスを作成して音を鳴らす準備をする
             // Create an instance of Amaoto.Sound and get ready to play the sound.
             var sound = new Sound(Path.Combine(dir, @"miss-sound.wav"));
