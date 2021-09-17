@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Koioto.SamplePlugin.MissSound
 {
-    public class MissSound : Overlay
+    public class MissSound : KoiotoPlugin
     {
         public override string Name => "MissSound";
         public override string[] Creator => new string[] { "AioiLight" };
